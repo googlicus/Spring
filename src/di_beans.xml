@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p = "http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="SpellChecker" class="com.tutorial.injection.SpellChecker"/>
+
+    <bean id="TextEditor" class="com.tutorial.injection.TextEditor">
+        <constructor-arg ref="SpellChecker"/>
+        <constructor-arg index="1" value="id1"/>
+    </bean>
+
+    <bean id="TextEditorSetter" class="com.tutorial.injection.TextEditorSetter"> <!--p:spellChecker-ref="SpellChecker"-->
+        <property name="spellChecker">
+            <bean id="SpellCheckerSetter" class="com.tutorial.injection.SpellChecker"/>
+        </property>
+    </bean>
+
+    <bean id="JavaCollection" class="com.tutorial.injection.JavaCollection">
+        <property name="nullAddress"><null></null></property>
+        <property name="addressList">
+            <list>
+                <value>Cambodga</value>
+                <value>Thailand</value>
+                <value>India</value>
+                <!--<ref>Indonesia</ref>-->
+            </list>
+        </property>
+        <property name="addressMap">
+            <map>
+                <entry key="1" value="Cambodga"></entry>
+                <entry key="2" value="India"></entry>
+                <entry key="3" value="Thailand"></entry>
+                <!--<entry key="4" value-ref="Indonesia"></entry>-->
+            </map>
+        </property>
+        <!--same for set and props-->
+    </bean>
+</beans>
