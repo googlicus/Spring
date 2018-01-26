@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="textEditor" class="com.tutorial.autowiring.TextEditor" autowire="byName" p:name="byName wiring"/>
+    <bean id="textEditorTyped" class="com.tutorial.autowiring.TextEditor" autowire="byType" p:name="byType wiring"/>
+    <bean id="textEditorCon" class="com.tutorial.autowiring.TextEditor" autowire="constructor" p:name="constructor wiring"/>
+    <bean id="textEditorAuto" class="com.tutorial.autowiring.TextEditorAuto"/>
+
+    <bean id="spellChecker" class="com.tutorial.autowiring.SpellChecker"/>
+    <!--<bean id="spellChecer" class="com.tutorial.autowiring.SpellChecker"/> cause exp byName-->
+    <!--<bean id="spellChecker2" class="com.tutorial.autowiring.SpellChecker"/> cause exp byType and cons-->
+
+    <bean id="Profile" class="com.tutorial.autowiring.Profile"/>
+    <bean id="studnt" class="com.tutorial.autowiring.Student">
+        <property name = "name" value = "Zara" />
+        <property name = "age" value = "11"/>
+    </bean>
+    <bean id="student2" class="com.tutorial.autowiring.Student">
+        <property name = "name" value = "Nuha" />
+        <property name = "age" value = "2"/>
+    </bean>
+</beans>
