@@ -21,7 +21,7 @@ public class StudentJDBCTemplate implements StudentDAO {
     @Override
     public void create(String name, Integer age) {
         String sql = "insert into Student(name, age) values(?, ?)";
-        jdbcTemplate.execute(sql);
+        jdbcTemplate.update(sql, name, age);
         System.out.println("Created record: name " + name + " age " + age);
     }
 

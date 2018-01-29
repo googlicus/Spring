@@ -5,7 +5,7 @@
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.apache.derby.jdbc.EmbeddedDriver"/>
-        <property name="url" value="jdbc:derby:D:/java-dev/idea_test_infra/Spring/src\Test"/>
+        <property name="url" value="jdbc:derby:C:/Users/DanilKa/IdeaProjects/Spring\Test;create=true"/>
         <property name="username" value="admin"/>
         <property name="password" value="admin"/>
     </bean>
