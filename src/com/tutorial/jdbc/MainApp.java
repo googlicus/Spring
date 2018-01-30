@@ -1,6 +1,5 @@
 package com.tutorial.jdbc;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -17,13 +16,18 @@ public class MainApp {
         studentJDBCTemplate.create("Le chat", 23);
         studentJDBCTemplate.create("La chatte", 27);
 
-        for (Student student : studentJDBCTemplate.listStudents()){
-            System.out.println(student.getName());
+        //Student student = studentJDBCTemplate.getStudent(2);
+        //System.out.println(student.getName());
+
+        //studentJDBCTemplate.delete(2);
+
+        studentJDBCTemplate.createMark(-1, 2005, 4);
+        studentJDBCTemplate.createMark(-1, 2009, 5);
+
+        for (Student st: studentJDBCTemplate.listStudents()){
+            System.out.print(st.getName() + " ");
+            System.out.print(st.getYear() + " ");
+            System.out.println(st.getMarks());
         }
-
-        Student student = studentJDBCTemplate.getStudent(2);
-        System.out.println(student.getName());
-
-        studentJDBCTemplate.delete(2);
     }
 }

@@ -19,4 +19,6 @@ public interface StudentDAO {
     public Student getStudent(Integer id);
 
     public List<Student> listStudents();
+
+    public void createMark(Integer id, Integer year, Integer mark);
 }
